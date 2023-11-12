@@ -51,6 +51,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.deleteById(theId);
 	}
 
+	@Override
+	public List<Employee> findEmployeeByType(String type) {
+		 List<Employee> listCustomer = employeeRepository.findEmployeeByType(type);
+		 return listCustomer;
+ 	}
+
 }
 
 

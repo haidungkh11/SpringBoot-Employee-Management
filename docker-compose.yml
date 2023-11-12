@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    mysql:
+      image: mysql:8.0.34
+      environment:
+          - MYSQL_ROOT_PASSWORD=123456
+          - MYSQL_DATABASE=employee_directory
+      ports:
+           - "3307:3306"
+      volumes: 
+          - mysql-data:/var/lib/mysql
+          - ./employee_directory.sql:/docker-entrypoint-initdb.d/init.sql
+    web:
+      image: obo-spring:latest
+      ports: 
+          - "8005:8080"
+      depends_on: 
+          - mysql
+
+volumes: 
+    mysql-data:

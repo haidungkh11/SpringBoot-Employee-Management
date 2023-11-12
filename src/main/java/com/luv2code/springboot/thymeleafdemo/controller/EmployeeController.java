@@ -55,6 +55,16 @@ public class EmployeeController {
 		employeeService.deleteById(theId);
 		return "redirect:/employees/list";
 	}
+	@GetMapping("/policy/create")
+	public  String viewPolicy(Model model){
+		Employee theEmployee = new Employee();
+		model.addAttribute("Employee",theEmployee);
+		List<Employee> listEmployeeC = employeeService.findEmployeeByType("C");
+		List<Employee> listEmployeeP = employeeService.findEmployeeByType("P");
+		model.addAttribute("listEmployeeC",listEmployeeC);
+		model.addAttribute("listEmployeeP",listEmployeeP);
+		return "employees/create-policy";
+	}
 }
 
 

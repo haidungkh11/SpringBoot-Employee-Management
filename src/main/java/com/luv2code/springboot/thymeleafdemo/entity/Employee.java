@@ -26,26 +26,23 @@ public class Employee {
 	
 	@Column(name="email")
 	private String email;
-	
-		
+
+	@Column(name="cust_type")
+	private String Type;
 	// define constructors
 	
 	public Employee() {
 		
 	}
 	
-	public Employee(int id, String firstName, String lastName, String email) {
-		this.id = id;
+
+
+
+	public Employee(String firstName, String lastName, String email,String Type) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-	}
-
-
-	public Employee(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+		this.Type = Type;
 	}
 
 	// define getter/setter
@@ -82,6 +79,13 @@ public class Employee {
 		this.email = email;
 	}
 
+	public String getType() {
+		return Type;
+	}
+
+	public void setType(String Type) {
+		this.Type = Type;
+	}
 	// define tostring
 
 	@Override
